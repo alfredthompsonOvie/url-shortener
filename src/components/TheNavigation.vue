@@ -90,7 +90,6 @@ header {
 	display: grid;
 	grid-template-columns: 1fr 10fr 1fr;
 	grid-template-rows: 5em;
-	/* border: 1px solid; */
 	align-items: center;
 }
 .nav__bar {
