@@ -89,18 +89,16 @@ export default {
 header {
 	display: grid;
 	grid-template-columns: 1fr 10fr 1fr;
-	grid-template-rows: 4em;
+	grid-template-rows: 5em;
 	/* border: 1px solid; */
 	align-items: center;
 }
 .nav__bar {
 	grid-column: 2;
 	grid-row: 1;
-
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	align-content: center;
 	position: relative;
 	padding: 1.5em 0;
 }
@@ -120,23 +118,30 @@ header {
 }
 .nav__list--mobile {
 	position: absolute;
-
 	top: 5em;
 	left: 0;
 	right: 0;
-
 	background-color: var(--DarkViolet);
 	text-align: center;
 	border-radius: 8px;
-	padding: 0.7em 1em;
+	padding: 2em 1em;
 }
 .nav__link--mobile {
 	display: block;
-	padding: 0.7em 0;
+	padding: .6em 0;
 	color: #fff;
+	font-weight: var(--fw-bold);
+}
+.nav__item--mobile + .nav__item--mobile {
+	margin-top: .6em;
+}
+.nav__item--mobile:first-child a {
+	padding-top: 0;
 }
 .nav__item--mobile:nth-of-type(4) {
 	border-top: 1px solid var(--GrayishViolet);
+	padding: 1em 0 .6em;
+	margin-top: 1.2em;
 }
 .nav__link--mobile.cta {
 	background-color: var(--Cyan);
