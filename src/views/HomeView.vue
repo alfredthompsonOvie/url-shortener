@@ -62,7 +62,7 @@
 			<div class="service__card">
 				<div class="card js-card">
 					<div class="card__imgContainer">
-						<img src="images/icon-brand-recognition.svg" alt="" />
+						<img src="@/assets/images/icon-brand-recognition.svg" alt="" />
 					</div>
 					<div class="card__content">
 						<h4 class="heading">Brand Recognition</h4>
@@ -75,7 +75,7 @@
 				</div>
 				<div class="card">
 					<div class="card__imgContainer">
-						<img src="images/icon-detailed-records.svg" alt="" />
+						<img src="@/assets/images/icon-detailed-records.svg" alt="" />
 					</div>
 					<div class="card__content">
 						<h4 class="heading">Detailed Records</h4>
@@ -88,7 +88,7 @@
 				</div>
 				<div class="card">
 					<div class="card__imgContainer">
-						<img src="images/icon-fully-customizable.svg" alt="" />
+						<img src="@/assets/images/icon-fully-customizable.svg" alt="" />
 					</div>
 					<div class="card__content">
 						<h4 class="heading">Fully Customizable</h4>
