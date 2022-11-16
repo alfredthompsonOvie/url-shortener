@@ -111,6 +111,9 @@
 	display: none;
 	visibility: hidden;
 }
+.output {
+  margin-bottom: 5em;
+}
 .output__result {
 	background-color: #fff;
 	border-radius: 8px;
@@ -241,12 +244,14 @@
 	margin-top: 2em;
 }
 .nav__link--footer {
-	color: var(--Gray);
+  color: var(--Gray);
 	display: block;
-	font-weight: var(--fw-bold);
+}
+.nav__link--footer {
+  font-weight: var(--fw-md);
 }
 .nav__link__header {
-	color: #fff;
+  color: #fff;
 	font-weight: var(--fw-bold);
 	margin-bottom: 0.5em;
 }
@@ -399,12 +404,6 @@
 	.nav__item--footer + .nav__item--footer {
 		margin-top: 0.8em;
 	}
-  .nav__link--footer.nav__link__header {
-    font-weight: var(--fw-bold);
-  }
-  .nav__link--footer {
-    font-weight: var(--fw-md);
-  }
 	.social__links {
 		margin-top: 0;
 	}
