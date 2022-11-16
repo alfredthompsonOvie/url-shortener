@@ -1,7 +1,7 @@
 <template>
 	<div class="hero">
-		<div class="illustration">
-			<img src="@/assets/images/illustration-working.svg" alt="" />
+		<div class="hero__illustration">
+			<!-- <img src="@/assets/images/illustration-working.svg" alt="" /> -->
 		</div>
 		<div class="hero__content js-hero__content">
 			<h1 class="title js__hero--heading">More than just shorter links</h1>
@@ -12,6 +12,7 @@
 			<a href="#" class="cta">Get Started</a>
 		</div>
 	</div>
+	
 </template>
 
 <script>
