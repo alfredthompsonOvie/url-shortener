@@ -1,5 +1,5 @@
 <template>
-	<div class="hero">
+	<!-- <div class="hero">
 		<div class="hero__illustration"></div>
 		<div class="hero__content js-hero__content">
 			<h1 class="title js__hero--heading">More than just shorter links</h1>
@@ -9,7 +9,18 @@
 			</p>
 			<a href="#" class="cta">Get Started</a>
 		</div>
-	</div>
+	</div> -->
+	<section class="hero">
+		<div class="hero__illustration"></div>
+		<div class="hero__content js-hero__content">
+			<h1 class="title js__hero--heading">More than just shorter links</h1>
+			<p class="text text--hero js__hero--text">
+				Build your brand’s recognition and get detailed insights on how your
+				links are performing.
+			</p>
+			<a href="#" class="cta">Get Started</a>
+		</div>
+	</section>
 	<section class="services">
 		<div class="services__urlShortener js-urlShortener">
 			<form action="#" class="form js-form">

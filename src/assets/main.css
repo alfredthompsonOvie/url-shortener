@@ -10,8 +10,15 @@
 	display: grid;
 	grid-template-columns: 1fr 10fr 1fr;
 	grid-template-rows: auto auto;
-	/* align-items: center; */
 	justify-content: start;
+  padding-bottom: 8em;
+}
+.cta{
+  background-color: var(--Cyan);
+  border-radius: 30px;
+  padding: .4em 1.5em;
+  color: #fff;
+  display: inline-block;
 }
 
 .hero__illustration {
@@ -216,6 +223,52 @@
 	color: #fff;
 	margin-bottom: 1em;
 }
+.footer {
+	display: grid;
+	grid-template-columns: 1fr 10fr 1fr;
+	grid-template-rows: auto;
+	background-color: var(--VeryDarkBlue);
+}
+.footer__contents {
+	grid-column: 2;
+	padding: 4em 0;
+	text-align: center;
+}
+.branding__img--footer {
+	filter: invert(1) brightness(2);
+}
+.footer__nav__list {
+	margin-top: 2em;
+}
+.nav__link--footer {
+	color: var(--Gray);
+	display: block;
+	font-weight: var(--fw-bold);
+}
+.nav__link__header {
+	color: #fff;
+	font-weight: var(--fw-bold);
+	margin-bottom: 0.5em;
+}
+.social__links {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 2em;
+	margin-top: 2em;
+}
+.social__links img {
+	width: 100%;
+}
+.attribution {
+	grid-column: 2;
+}
+.attribution p {
+	background-color: var(--Gray);
+	display: inline-block;
+}
+/* 
+*/
 /* ! 1 =========================================================== */
 /* ! 1 =========================================================== */
 /* ! 1 =========================================================== */
@@ -267,6 +320,10 @@
 	}
 }
 @media (min-width: 992px) {
+  .hero{
+    grid-template-columns: 1fr 5fr 5fr 1fr;
+    grid-template-rows: 28em;
+  }
 	.hero__illustration {
 		grid-column: 3/-1;
 		background-position: left;
@@ -327,10 +384,26 @@
 		background-size: cover;
 		background-position: center;
 	}
-}
 
+	.footer__contents {
+		display: flex;
+		align-items: flex-start;
+		gap: 3em;
+		text-align: left;
+	}
+	.footer__nav__list {
+		margin-top: 0;
+	}
+	.social__links {
+		margin-top: 0;
+	}
+	.footer__nav__list:nth-of-type(1) {
+		margin-left: auto;
+	}
+}
 @media (min-width: 1200px) {
 	.hero__illustration {
+		background-size: cover;
 		background-size: 38em;
 	}
 }
