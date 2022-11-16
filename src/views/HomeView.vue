@@ -101,6 +101,12 @@
 			</div>
 		</div>
 	</section>
+	<section class="subscribe">
+		<div class="content js-subscribe">
+			<h2>Boost your links today</h2>
+			<a href="#" class="cta">Get Started</a>
+		</div>
+	</section>
 </template>
 
 <script>
