@@ -116,6 +116,10 @@
 	background-color: #fff;
 	border-radius: 8px;
 }
+.output__result  {
+	margin-top: 2em;
+}
+
 .output__result + .output__result {
 	margin-top: 1em;
 }
@@ -303,6 +307,9 @@
 	}
 	.form__group {
 		flex: 1;
+	}
+	.output__result  {
+		margin-top: 0em;
 	}
 }
 @media (min-width: 800px) {
