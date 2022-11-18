@@ -31,13 +31,13 @@
 				</div>
 			</div>
 
-			<div class="output__result">
+			<!-- <div class="output__result">
 				<p class="inputUrl">https://www.frontendmentor.io</p>
 				<div class="result__output">
 					<p class="shortenUrl">https://rel.ink/K4IKyk</p>
 					<button class="btn cta">Copy</button>
 				</div>
-			</div>
+			</div> -->
 
 			<!-- <div class="output__result">
 					<p class="inputUrl">https://www.twitter.com/frontendmentor</p>
@@ -79,24 +79,32 @@ export default {
   methods: {
     async handleSubmit(values) {
       let link = values.url
-      console.log(link);
       let response = await fetch(`https://api.shrtco.de/v2/shorten?url=${link}`)
       let data = await response.json();
-      console.log(data);
-      console.log(data.result.short_link);
-      console.log(data.result.full_short_link);
-      console.log(data.result.original_link);
 
       const shortenOriginalUrl = link.length <= this.maxLength ? link : `${link.substring(0, this.maxLength)}...`;
 
-      this.links.unshift({
+      let linkData = {
         id: uuidv4(),
         link,
         shortenOriginalUrl,
         shortenLink: data.result.full_short_link
-      })
+      }
+      this.links.unshift(linkData)
 
     }
+  },
+  watch: {
+    links: {
+      handler(newVal) {
+        console.log(newVal);
+        localStorage.setItem("link", JSON.stringify(newVal))
+      },
+      deep: true,
+    }
+  },
+  mounted() {
+    this.links = JSON.parse(localStorage.getItem("link")) || [];
   }
 };
 </script>
