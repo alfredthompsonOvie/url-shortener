@@ -108,8 +108,6 @@
 
 	max-height: 0;
 	height: 0em;
-	display: none;
-	visibility: hidden;
 }
 .output {
   margin-bottom: 5em;

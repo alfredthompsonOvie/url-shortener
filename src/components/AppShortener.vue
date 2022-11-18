@@ -1,6 +1,10 @@
 <template>
 	<div class="services__urlShortener js-urlShortener">
-		<vee-form class="form js-form" @submit.prevent="handleSubmit">
+		<vee-form 
+    class="form js-form" 
+    @submit="handleSubmit"
+    :validation-schema="schema"
+    >
 			<div class="form__group">
 				<label for="url"></label>
 				<vee-field
@@ -12,7 +16,7 @@
 					v-model.lazy="urlLink"
 				/>
 				<!-- <p class="errorMsg">Please add a link</p> -->
-        <ErrorMessage class="errorMsg" />
+        <ErrorMessage name="url" class="errorMsg" />
 			</div>
 			<button class="cta cta--submit form__control">Shorten It!</button>
 		</vee-form>
@@ -58,18 +62,41 @@
 
 <script>
 import { v4 as uuidv4 } from "uuid";
-
-// step one - form validation with veeValidate
-// step two - install uuid
-// step three - add fetch functionality 
 export default {
 	name: "AppShortener",
 
 	data() {
 		return {
-			urlLink: "",
-			links: [],
+      urlLink: "",
+      maxLength: 30,
+      links: [],
+
+      schema: {
+        url: "required|min:2|url"
+      }
 		};
-	},
+  },
+  methods: {
+    async handleSubmit(values) {
+      let link = values.url
+      console.log(link);
+      let response = await fetch(`https://api.shrtco.de/v2/shorten?url=${link}`)
+      let data = await response.json();
+      console.log(data);
+      console.log(data.result.short_link);
+      console.log(data.result.full_short_link);
+      console.log(data.result.original_link);
+
+      const shortenOriginalUrl = link.length <= this.maxLength ? link : `${link.substring(0, this.maxLength)}...`;
+
+      this.links.unshift({
+        id: uuidv4(),
+        link,
+        shortenOriginalUrl,
+        shortenLink: data.result.full_short_link
+      })
+
+    }
+  }
 };
 </script>

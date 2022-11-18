@@ -15,8 +15,8 @@ export default {
       generateMessage: (ctx) => {
         const messages = {
           required: `Please add a link`,
-          url: `Please add a link`,
-          min: `The field ${ctx.field} is too short.`,
+          url: `link must start with http:// or https://`,
+          min: `The ${ctx.field} is too short.`,
         }
         const message = messages[ctx.rule.name] ? messages[ctx.rule.name] : `The field ${ctx.field} is invalid.`;
 
