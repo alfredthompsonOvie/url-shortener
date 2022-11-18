@@ -33,6 +33,3 @@ npm run build
 ```sh
 npm run lint
 ```
-step one - form validation with veeValidate
-step two - install uuid
-step three - add fetch functionality 
