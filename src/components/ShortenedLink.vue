@@ -1,19 +1,20 @@
 <template>
-	<div class="output__result">
+	<section class="output__result">
 		<!-- shortened original link -->
 		<p class="inputUrl">{{ link.shortenOriginalUrl }}</p>
 		<!-- link from api -->
-		<div class="result__output">
+		<section class="result__output">
 			<p class="shortenUrl">{{ link.shortenLink }}</p>
 			<button 
 			class="btn cta"
+			:class="{copied}"
 			@click.prevent="copyLink"
 			>
 			<span v-if="copied">Copied</span>
 			<span v-else>Copy</span>
 		</button>
-		</div>
-	</div>
+		</section>
+	</section>
 </template>
 
 <script setup>
@@ -32,4 +33,8 @@ const copyLink = () => {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style  scoped>
+.copied {
+	background-color: var(--DarkViolet);
+}
+</style>

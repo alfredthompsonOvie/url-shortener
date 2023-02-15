@@ -1,17 +1,13 @@
-/* color palette from <https://github.com/vuejs/theme> */
 :root {
 	box-sizing: border-box;
-
 	--ff: "Poppins", sans-serif;
 	--fs: 1.125rem;
 	--fw-md: 500;
 	--fw-bold: 700;
-
 	--Cyan: hsl(180, 66%, 49%);
+	--Cyan-hover: hsl(180, 86%, 63%);
 	--DarkViolet: hsl(257, 27%, 26%);
-
 	--Red: hsl(0, 87%, 67%);
-
 	--Gray: hsl(0, 0%, 75%);
 	--GrayishViolet: hsl(257, 7%, 63%);
 	--VeryDarkBlue: hsl(255, 11%, 22%);

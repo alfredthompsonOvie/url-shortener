@@ -88,29 +88,10 @@ const checkScreen = () => {
 	return;
 };
 onMounted(() => {
-		console.log("TheNav mounted");
 	checkScreen();
 	window.addEventListener("resize", checkScreen);
 
-	// const tl = gsap.timeline();
-	// tl
-  //   .from([".branding", ".hamburger"], {
-	// 	x: -20,
-	// 	autoAlpha: 0.01,
-  //   // ease: 'back.out',
-  //   stagger: 0.2,
-  //   // duration: 1
-  // })
-  //   .from(".nav__list > *", {
-	// 	x: -10,
-	// 	autoAlpha: 0.01,
-	// 	rotate: "-10deg",
-  //   stagger: 0.2,
-	// })
 });
-// import { onMounted } from "vue";
-// onMounted(() => {
-// })
 const onEnter = (el, done) => {
 	const tl = gsap.timeline();
 	const li = el.children;
@@ -140,37 +121,10 @@ const onLeave = (el, done) => {
 		onComplete: done,
 	})
 };
-// using options api
-// export default {
-// 	name: "TheNavigation",
-// 	data() {
-// 		return {
-// 			mobileMenu: null,
-// 			mobile: null,
-// 			windowWidth: null,
-// 		};
-// 	},
-// 	created() {
-// 		this.checkScreen();
-// 		window.addEventListener("resize", this.checkScreen);
-// 	},
-// 	methods: {
-// 		checkScreen() {
-// 			this.windowWidth = window.innerWidth;
-// 			if (this.windowWidth < 992) {
-// 				this.mobile = true;
-// 				this.mobileMenu = false;
-// 				return;
-// 			}
-// 			this.mobile = false;
-// 			this.mobileMenu = false;
-// 			return;
-// 		},
-// 	},
-// };
+
 </script>
 
-<style>
+<style scoped>
 header {
 	display: grid;
 	grid-template-columns: 1fr 10fr 1fr;
@@ -209,6 +163,7 @@ header {
 	text-align: center;
 	border-radius: 8px;
 	padding: 2em 1em;
+	z-index: 99;
 }
 .nav__link--mobile {
 	display: block;
@@ -252,6 +207,14 @@ header {
 		color: var(--GrayishViolet);
 		font-size: 1rem;
 		font-weight: var(--fw-md);
+	}
+	.nav__link:hover {
+		color: var(--DarkViolet);
+
+	}
+	.cta.nav__link:hover {
+		color: #fff;
+
 	}
 	.nav__item:nth-of-type(4) {
 		margin-left: auto;

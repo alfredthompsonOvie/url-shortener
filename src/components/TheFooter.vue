@@ -7,13 +7,13 @@
 			>
 				<img
 					src="@/assets/images/logo.svg"
-					alt=""
+					alt="go to homepage"
 					class="branding__img--footer"
 				/>
 			</router-link>
 			<ul class="footer__nav__list">
-				<li class="nav__item--footer">
-					<router-link :to="{name: ''}" class="nav__link--footer nav__link__header">Features</router-link>
+				<li class="nav__item--footer nav__link__header">
+					Features
 				</li>
 				<li class="nav__item--footer">
 					<router-link :to="{name: ''}" class="nav__link--footer"> Link Shortening </router-link>
@@ -26,8 +26,8 @@
 				</li>
 			</ul>
 			<ul class="footer__nav__list">
-				<li class="nav__item--footer">
-					<router-link :to="{name: ''}" class="nav__link--footer nav__link__header">Resources</router-link>
+				<li class="nav__item--footer nav__link__header">
+					Resources
 				</li>
 				<li class="nav__item--footer">
 					<router-link :to="{name: ''}" class="nav__link--footer">Blog</router-link>
@@ -41,8 +41,8 @@
 			</ul>
 
 			<ul class="footer__nav__list">
-				<li class="nav__item--footer">
-					<router-link :to="{name: ''}" class="nav__link--footer nav__link__header">Company</router-link>
+				<li class="nav__item--footer nav__link__header">
+					Company
 				</li>
 				<li class="nav__item--footer">
 					<router-link :to="{name: ''}" class="nav__link--footer">About </router-link>
@@ -59,29 +59,29 @@
 			</ul>
 			<ul class="social__links">
 				<li>
-					<router-link :to="{name: ''}"><img src="@/assets/images/icon-facebook.svg" alt="" /></router-link>
+					<AppLink to="https://www.facebook.com"><img src="@/assets/images/icon-facebook.svg" alt="like our facebook page" /></AppLink>
 				</li>
 				<li>
-					<router-link :to="{name: ''}"><img src="@/assets/images/icon-twitter.svg" alt="" /></router-link>
+					<AppLink to="https://www.twitter.com"><img src="@/assets/images/icon-twitter.svg" alt="follow us on twitter" /></AppLink>
 				</li>
 				<li>
-					<router-link :to="{name: ''}"
-						><img src="@/assets/images/icon-pinterest.svg" alt=""
-					/></router-link>
+					<AppLink to="https://www.pinterest.com"
+						><img src="@/assets/images/icon-pinterest.svg" alt="a link to pinterest"
+					/></AppLink>
 				</li>
 				<li>
-					<router-link :to="{name: ''}"
-						><img src="@/assets/images/icon-instagram.svg" alt=""
-					/></router-link>
+					<AppLink to="https://www.instagram.com"
+						><img src="@/assets/images/icon-instagram.svg" alt="follow us on instagram"
+					/></AppLink>
 				</li>
 			</ul>
 		</section>
 		<div class="attribution">
 			<p>
 				Challenge by
-				<a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
-					>Frontend Mentor</a
-				>. Coded by <a href="#">Your Name Here</a>.
+				<AppLink to="https://www.frontendmentor.io?ref=challenge"
+					>Frontend Mentor</AppLink
+				>. Coded by <AppLink to="https://www.linkedin.com/in/alfredthompsonovie/">Alfred Thompson Ovie</AppLink>.
 			</p>
 		</div>
 	</footer>
@@ -89,6 +89,7 @@
 
 <script setup>
 import { onMounted } from 'vue';
+import AppLink from './AppLink.vue';
 
 onMounted(() => {
 	console.log("footer mounted");

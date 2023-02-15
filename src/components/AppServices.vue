@@ -1,33 +1,33 @@
 <template>
 	<section class="services">
 		<AppShortener />
-		<div class="services__info">
-			<div class="services__info__description js-infoHeading">
-				<h2 class="heading">Advanced Statistics</h2>
+		<section class="services__info">
+			<section class="services__info__description">
+				<h1 class="heading">Advanced Statistics</h1>
 				<p class="text text--services">
 					Track how your links are performing across the web with our advanced
 					statistics dashboard.
 				</p>
-			</div>
-			<div class="service__card">
+			</section>
+			<section class="service__card">
 				<section
 					class="card"
 					v-for="serviceCard in serviceCards"
 					:key="serviceCard.heading"
 				>
-					<div class="card__imgContainer">
+					<section class="card__imgContainer">
 						<img
 							:src="`${getImageUrl(serviceCard.image)}`"
 							:alt="serviceCard.alt"
 						/>
-					</div>
-					<div class="card__content">
+					</section>
+					<section class="card__content">
 						<h1 class="heading">{{ serviceCard.heading }}</h1>
 						<p class="description">{{ serviceCard.content }}.</p>
-					</div>
+					</section>
 				</section>
-			</div>
-		</div>
+			</section>
+		</section>
 	</section>
 </template>
 
@@ -63,7 +63,10 @@ function getImageUrl(name) {
 }
 </script>
 
-<style>
+<style scoped>
+.heading {
+	font-size: 1.6rem;
+}
 .card__content h1 {
 	font-size: var(--fs);
 }

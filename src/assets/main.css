@@ -1,5 +1,4 @@
 @import "./base.css";
-
 #app {
 	max-width: 1440px;
 	margin-inline: auto;
@@ -9,29 +8,20 @@
 .hero {
 	display: grid;
 	grid-template-columns: 1fr 10fr 1fr;
-	grid-template-rows: auto auto;
+	grid-template-rows: repeat(2, auto);
 	justify-content: start;
 	padding-bottom: 8em;
 }
-.cta {
+.cta, .nav__link.cta {
 	background-color: var(--Cyan);
 	border-radius: 30px;
 	padding: 0.4em 1.5em;
 	color: #fff;
 	display: inline-block;
+	transition: all .3s linear;
 }
-
-.hero__illustration {
-	grid-column: 1/-1;
-	grid-row: 1;
-	padding-top: 18em;
-	background-image: url(images/illustration-working.svg);
-	background-repeat: no-repeat;
-	background-size: 24em;
-	background-position: 1em 0%;
-	max-width: 28em;
-	width: 100%;
-	margin-inline: auto;
+.cta:hover {
+	background-color: var(--Cyan-hover);
 }
 .hero__graphics {
 	grid-column: 1/-1;
@@ -39,7 +29,6 @@
 	max-width: 28em;
 	width: 100%;
 	margin-inline: auto;
-	/* object-position: left; */
 	position: relative;
 	left: 2em;
 }
@@ -114,8 +103,8 @@
 .errorMsg {
 	color: var(--Red);
 	font-size: 0.8rem;
+	font-style: italic;
 	margin: 0.2em;
-
 	max-height: 0;
 	height: 0em;
 }
@@ -125,8 +114,6 @@
 .output__result {
 	background-color: #fff;
 	border-radius: 8px;
-}
-.output__result  {
 	margin-top: 2em;
 }
 
@@ -161,6 +148,7 @@
 }
 .services__info {
 	grid-column: 2;
+	margin-top: 0em;
 }
 .services__info__description {
 	text-align: center;
@@ -234,10 +222,6 @@
 	text-align: center;
 	padding: 5em 0;
 }
-/* .content h2{
-	color: #fff;
-	margin-bottom: 1em;
-} */
 .subscribe__heading {
 	color: #fff;
 	margin-bottom: 1em;
@@ -262,14 +246,16 @@
 .nav__link--footer {
   color: var(--Gray);
 	display: block;
+	font-weight: var(--fw-md);
 }
-.nav__link--footer {
-  font-weight: var(--fw-md);
+.nav__link--footer:hover {
+	color: var(--Cyan);
 }
 .nav__link__header {
+	display: block;
   color: #fff;
 	font-weight: var(--fw-bold);
-	margin-bottom: 0.5em;
+	margin-bottom: 1.5em;
 }
 .social__links {
 	display: flex;
@@ -281,6 +267,9 @@
 .social__links img {
 	width: 100%;
 }
+.social__links img:hover {
+	filter: sepia(1) saturate(99) hue-rotate(90deg);
+}
 .attribution {
 	grid-column: 2;
 }
@@ -288,34 +277,15 @@
 	background-color: var(--Gray);
 	display: inline-block;
 }
-/* 
-*/
-/* ! 1 =========================================================== */
-/* ! 1 =========================================================== */
-/* ! 1 =========================================================== */
-/* ! 1 =========================================================== */
-/* ! 1 =========================================================== */
-/* ! 1 =========================================================== */
-/* ! 1 =========================================================== */
-/* ! 1 =========================================================== */
-/* ! 1 =========================================================== */
-/* 
 
-*/
-@media (min-width: 600px) {
-	.hero__illustration {
-		padding-top: 20em;
-		background-size: 30em;
-		max-width: 32em;
-		margin-bottom: 1.5em;
-	}
+@media (min-width: 37.5em) {
 	.hero__graphics {
 		max-width: 32em;
 		margin-bottom: 1.5em;
 	}
 }
 
-@media (min-width: 700px) {
+@media (min-width: 43.75em) {
 	.form {
 		top: -7.5em;
 		flex-direction: row;
@@ -330,7 +300,7 @@
 		margin-top: 0em;
 	}
 }
-@media (min-width: 800px) {
+@media (min-width: 50em) {
 	.output__result {
 		display: flex;
 		justify-content: space-between;
@@ -340,6 +310,7 @@
 		border-top: none;
 		display: grid;
 		grid-template-columns: repeat(2, auto);
+		align-items: center;
 		gap: 1em;
 		width: initial;
 	}
@@ -351,26 +322,15 @@
 		padding: 0.8em 2em;
 	}
 }
-@media (min-width: 992px) {
+@media (min-width: 62em) {
 	.hero {
 		grid-template-columns: 1fr 5fr 5fr 1fr;
 		grid-template-rows: 28em;
 		padding-bottom: 5em;
 	}
-	.hero__illustration {
-		grid-column: 3/-1;
-		background-position: left;
-		background-size: 32em;
-		max-width: 100%;
-		margin-left: 1rem;
-		margin-bottom: 0em;
-	}
 	.hero__graphics {
 		grid-column: 3/-1;
 		max-width: 100%;
-		/* margin-left: 1rem;
-		margin-bottom: 0em;
-		margin-top: 1em; */
 		margin: 1em 0 0 1em;
 		left: 4em;
 	}
@@ -446,11 +406,5 @@
 	}
 	.footer__nav__list:nth-of-type(1) {
 		margin-left: auto;
-	}
-}
-@media (min-width: 1200px) {
-	.hero__illustration {
-		background-size: cover;
-		background-size: 38em;
 	}
 }
