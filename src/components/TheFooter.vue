@@ -1,78 +1,81 @@
 <template>
 	<footer class="footer">
-		<div class="footer__contents">
-			<div class="branding--footer">
+		<section class="footer__contents">
+			<router-link 
+			:to="{name: 'home'}"
+			class="branding--footer"
+			>
 				<img
 					src="@/assets/images/logo.svg"
 					alt=""
 					class="branding__img--footer"
 				/>
-			</div>
+			</router-link>
 			<ul class="footer__nav__list">
 				<li class="nav__item--footer">
-					<a href="#" class="nav__link--footer nav__link__header">Features</a>
+					<router-link :to="{name: ''}" class="nav__link--footer nav__link__header">Features</router-link>
 				</li>
 				<li class="nav__item--footer">
-					<a href="#" class="nav__link--footer"> Link Shortening </a>
+					<router-link :to="{name: ''}" class="nav__link--footer"> Link Shortening </router-link>
 				</li>
 				<li class="nav__item--footer">
-					<a href="#" class="nav__link--footer">Branded Links</a>
+					<router-link :to="{name: ''}" class="nav__link--footer">Branded Links</router-link>
 				</li>
 				<li class="nav__item--footer">
-					<a href="#" class="nav__link--footer">Analytics</a>
+					<router-link :to="{name: ''}" class="nav__link--footer">Analytics</router-link>
 				</li>
 			</ul>
 			<ul class="footer__nav__list">
 				<li class="nav__item--footer">
-					<a href="#" class="nav__link--footer nav__link__header">Resources</a>
+					<router-link :to="{name: ''}" class="nav__link--footer nav__link__header">Resources</router-link>
 				</li>
 				<li class="nav__item--footer">
-					<a href="#" class="nav__link--footer">Blog</a>
+					<router-link :to="{name: ''}" class="nav__link--footer">Blog</router-link>
 				</li>
 				<li class="nav__item--footer">
-					<a href="#" class="nav__link--footer">Developers</a>
+					<router-link :to="{name: ''}" class="nav__link--footer">Developers</router-link>
 				</li>
 				<li class="nav__item--footer">
-					<a href="#" class="nav__link--footer">Support</a>
+					<router-link :to="{name: ''}" class="nav__link--footer">Support</router-link>
 				</li>
 			</ul>
 
 			<ul class="footer__nav__list">
 				<li class="nav__item--footer">
-					<a href="#" class="nav__link--footer nav__link__header">Company</a>
+					<router-link :to="{name: ''}" class="nav__link--footer nav__link__header">Company</router-link>
 				</li>
 				<li class="nav__item--footer">
-					<a href="#" class="nav__link--footer">About </a>
+					<router-link :to="{name: ''}" class="nav__link--footer">About </router-link>
 				</li>
 				<li class="nav__item--footer">
-					<a href="#" class="nav__link--footer">Our Team </a>
+					<router-link :to="{name: ''}" class="nav__link--footer">Our Team </router-link>
 				</li>
 				<li class="nav__item--footer">
-					<a href="#" class="nav__link--footer">Careers</a>
+					<router-link :to="{name: ''}" class="nav__link--footer">Careers</router-link>
 				</li>
 				<li class="nav__item--footer">
-					<a href="#" class="nav__link--footer">Contact</a>
+					<router-link :to="{name: ''}" class="nav__link--footer">Contact</router-link>
 				</li>
 			</ul>
 			<ul class="social__links">
 				<li>
-					<a href="#"><img src="@/assets/images/icon-facebook.svg" alt="" /></a>
+					<router-link :to="{name: ''}"><img src="@/assets/images/icon-facebook.svg" alt="" /></router-link>
 				</li>
 				<li>
-					<a href="#"><img src="@/assets/images/icon-twitter.svg" alt="" /></a>
+					<router-link :to="{name: ''}"><img src="@/assets/images/icon-twitter.svg" alt="" /></router-link>
 				</li>
 				<li>
-					<a href="#"
+					<router-link :to="{name: ''}"
 						><img src="@/assets/images/icon-pinterest.svg" alt=""
-					/></a>
+					/></router-link>
 				</li>
 				<li>
-					<a href="#"
+					<router-link :to="{name: ''}"
 						><img src="@/assets/images/icon-instagram.svg" alt=""
-					/></a>
+					/></router-link>
 				</li>
 			</ul>
-		</div>
+		</section>
 		<div class="attribution">
 			<p>
 				Challenge by
@@ -84,8 +87,10 @@
 	</footer>
 </template>
 
-<script>
-export default {
-	name: "TheFooter",
-};
+<script setup>
+import { onMounted } from 'vue';
+
+onMounted(() => {
+	console.log("footer mounted");
+})
 </script>

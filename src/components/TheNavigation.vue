@@ -12,77 +12,162 @@
 			</div>
 
 			<!-- mobile menu -->
-			<div
-				class="hamburger"
-				@click.prevent="mobileMenu = !mobileMenu"
-				v-if="mobile"
+			<div 
+			class="hamburger" 
+			@click.prevent="menu = !menu" 
+			v-if="isMobile"
 			>
 				<div class="top__bar bar"></div>
 				<div class="middle__bar bar"></div>
 				<div class="last__bar bar"></div>
 			</div>
 
-			<ul class="nav__list--mobile" v-if="mobileMenu">
-				<li class="nav__item--mobile">
-					<a href="#" class="nav__link--mobile">Features</a>
-				</li>
-				<li class="nav__item--mobile">
-					<a href="#" class="nav__link--mobile">Pricing</a>
-				</li>
-				<li class="nav__item--mobile">
-					<a href="#" class="nav__link--mobile">Resources</a>
-				</li>
-				<li class="nav__item--mobile nav__item--login">
-					<a href="#" class="nav__link--mobile">Login</a>
-				</li>
-				<li class="nav__item--mobile">
-					<a href="#" class="nav__link--mobile cta">Sign Up</a>
-				</li>
-			</ul>
+			<Transition 
+			:css="false" 
+			@enter="onEnter"
+			@leave="onLeave"
+			>
+				<ul class="nav__list--mobile" v-if="menu">
+					<li class="nav__item--mobile">
+						<router-link :to="{name: ''}" class="nav__link--mobile">Features</router-link>
+					</li>
+					<li class="nav__item--mobile">
+						<router-link :to="{name: ''}" class="nav__link--mobile">Pricing</router-link>
+					</li>
+					<li class="nav__item--mobile">
+						<router-link :to="{name: ''}" class="nav__link--mobile">Resources</router-link>
+					</li>
+					<li class="nav__item--mobile nav__item--login">
+						<router-link :to="{name: ''}" class="nav__link--mobile">Login</router-link>
+					</li>
+					<li class="nav__item--mobile">
+						<router-link :to="{name: ''}" class="nav__link--mobile cta">Sign Up</router-link>
+					</li>
+				</ul>
+			</Transition>
 
 			<!-- desktop menu -->
 
-			<ul class="nav__list" v-if="!mobile">
-				<li class="nav__item"><a href="#" class="nav__link">Features</a></li>
-				<li class="nav__item"><a href="#" class="nav__link">Pricing</a></li>
-				<li class="nav__item"><a href="#" class="nav__link">Resources</a></li>
-				<li class="nav__item nav__item--login">
-					<a href="#" class="nav__link">Login</a>
+			<ul class="nav__list" v-if="!isMobile">
+				<li class="nav__item">
+					<router-link :to="{name: '' }" class="nav__link">Features</router-link>
 				</li>
-				<li class="nav__item"><a href="#" class="nav__link cta">Sign Up</a></li>
+				<li class="nav__item">
+					<router-link :to="{name: '' }" class="nav__link">Pricing</router-link>
+				</li>
+				<li class="nav__item">
+					<router-link :to="{name: '' }" class="nav__link">Resources</router-link>
+				</li>
+				<li class="nav__item nav__item--login">
+					<router-link :to="{name: '' }" class="nav__link">Login</router-link>
+				</li>
+				<li class="nav__item">
+					<router-link :to="{name: '' }" class="nav__link cta">Sign Up</router-link>
+				</li>
 			</ul>
 		</nav>
 	</header>
 </template>
 
-<script>
-export default {
-	name: "TheNavigation",
-	data() {
-		return {
-			mobileMenu: null,
-			mobile: null,
-			windowWidth: null,
-		};
-	},
-	created() {
-		this.checkScreen();
-		window.addEventListener("resize", this.checkScreen);
-	},
-	methods: {
-		checkScreen() {
-			this.windowWidth = window.innerWidth;
-			if (this.windowWidth < 992) {
-				this.mobile = true;
-				this.mobileMenu = false;
-				return;
-			}
-			this.mobile = false;
-			this.mobileMenu = false;
-			return;
-		},
-	},
+<script setup>
+import { ref, onMounted } from "vue";
+import { gsap } from "gsap";
+
+const menu = ref(null);
+const isMobile = ref(null);
+const windowWidth = ref(null);
+const checkScreen = () => {
+	windowWidth.value = window.innerWidth;
+	if (windowWidth.value < 992) {
+		menu.value = false;
+		isMobile.value = true;
+		return;
+	}
+	menu.value = false;
+	isMobile.value = false;
+	return;
 };
+onMounted(() => {
+		console.log("TheNav mounted");
+	checkScreen();
+	window.addEventListener("resize", checkScreen);
+
+	// const tl = gsap.timeline();
+	// tl
+  //   .from([".branding", ".hamburger"], {
+	// 	x: -20,
+	// 	autoAlpha: 0.01,
+  //   // ease: 'back.out',
+  //   stagger: 0.2,
+  //   // duration: 1
+  // })
+  //   .from(".nav__list > *", {
+	// 	x: -10,
+	// 	autoAlpha: 0.01,
+	// 	rotate: "-10deg",
+  //   stagger: 0.2,
+	// })
+});
+// import { onMounted } from "vue";
+// onMounted(() => {
+// })
+const onEnter = (el, done) => {
+	const tl = gsap.timeline();
+	const li = el.children;
+
+	tl.from(el, {
+		y: 15,
+		autoAlpha: 0.01,
+	}).from(li, {
+		autoAlpha: 0.01,
+		y: 10,
+		stagger: 0.2,
+		onComplete: () => {
+			gsap.from(el, {
+				clearProps: "all"
+			})
+			done()
+		},
+	});
+};
+
+const onLeave = (el, done) => {
+	const tl = gsap.timeline();
+
+	tl.to(el, {
+		x: 75,
+		autoAlpha: 0.01,
+		onComplete: done,
+	})
+};
+// using options api
+// export default {
+// 	name: "TheNavigation",
+// 	data() {
+// 		return {
+// 			mobileMenu: null,
+// 			mobile: null,
+// 			windowWidth: null,
+// 		};
+// 	},
+// 	created() {
+// 		this.checkScreen();
+// 		window.addEventListener("resize", this.checkScreen);
+// 	},
+// 	methods: {
+// 		checkScreen() {
+// 			this.windowWidth = window.innerWidth;
+// 			if (this.windowWidth < 992) {
+// 				this.mobile = true;
+// 				this.mobileMenu = false;
+// 				return;
+// 			}
+// 			this.mobile = false;
+// 			this.mobileMenu = false;
+// 			return;
+// 		},
+// 	},
+// };
 </script>
 
 <style>
@@ -154,7 +239,7 @@ header {
 		gap: 1em;
 	}
 	.branding__img {
-		padding-top: .6em;
+		padding-top: 0.6em;
 	}
 	.nav__list {
 		display: flex;

@@ -45,7 +45,9 @@ button {
 	cursor: pointer;
 }
 
-
+.heading--js {
+	display: inline-block;
+}
 .attribution {
 	font-size: 11px;
 	text-align: center;
